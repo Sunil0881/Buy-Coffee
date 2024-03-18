@@ -11,6 +11,7 @@ import {
   base,
   zora,
   polygonMumbai,
+  sepolia
 } from 'wagmi/chains';
 import {
   QueryClientProvider,
@@ -20,7 +21,7 @@ import {
 const config = getDefaultConfig({
   appName: 'My RainbowKit App',
   projectId: 'YOUR_PROJECT_ID',
-  chains: [polygonMumbai],
+  chains: [polygonMumbai,sepolia],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 const queryClient = new QueryClient();

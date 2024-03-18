@@ -9,7 +9,7 @@ function Home() {
     <div className='bg-blue-500 h-screen'>
       <Navbar />
       
-       <Form />
+       <Form /> 
        <Output />
     
     </div>

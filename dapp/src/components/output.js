@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Cof from "../abi/Coffee.json";
-import { ethers } from "ethers";
-import Web3 from 'web3';
-import { getData } from '../ContractIntegration';
-const COFFEE_CONTRACT = "0x09e6b4c35678A3ca634CC8Cd38f600132CAA1060";
+import { GETMEMO } from '../ContractIntegration';
+
 
  
 
@@ -15,16 +12,26 @@ const Output = () => {
     const [hexvalue, setHexValue] = useState('');
     const [entries, setEntries] = useState([]);
 
-    const gett = async () => {
-        const res = await getData();
-        console.log(res);
+    const get = async () => {
+        const answer = await GETMEMO();
+        if (Array.isArray(answer)) {
+            const formattedEntries = answer.map(entry => ({
+                name: entry[0],
+                message: entry[1],
+                date: entry[2].toString(),
+                hexvalue: entry[3]
+            }));
+            setEntries(formattedEntries);
+        } else {
+            console.error('Invalid answer format:', answer);
+        }
+        
     }
     
     useEffect(() => {
-     gett()
+     get()
         
-    
-      }, []);
+    }, []);
 
       
    

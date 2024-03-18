@@ -1,17 +1,6 @@
 import React, { useState } from 'react';
-import Web3 from "web3";
-import Cof from "../abi/Coffee.json";
-import { ethers } from "ethers";
-
-
-const COFFEE_CONTRACT = "0x09e6b4c35678A3ca634CC8Cd38f600132CAA1060";
-
-
-  
-
- 
-
-
+import { BUYCOFFEE } from '../ContractIntegration';
+import { ethers } from 'ethers';
 
 const Form = () => {
     
@@ -28,22 +17,15 @@ const Form = () => {
     };
   
     const handleBuyClick = async () => {
-      try {
-        
-        const provider = new ethers.providers.JsonRpcProvider(
-          "https://sepolia.infura.io/v3/290819ba5ca344eea8990cb5ccaa8e6a"
-        );
-        const signer = provider.getSigner();
-        console.log();
-        const contract = new ethers.Contract(COFFEE_CONTRACT, Cof, signer);
-        const transaction = await contract.buyCoffee(name, message, { value: ethers.utils.parseEther('0.1') });
-        await transaction.wait();
-        alert('Coffee bought successfully!');
-      } catch (error) {
-        console.error('Error buying coffee:', error);
-        alert('Error buying coffee. Please check the console for details.');
-      }
+      alert("button clicked");
+      const cost = ethers.utils.parseEther('0.01').toString(); // Ensure cost is in wei
+      console.log("Cost:", cost);
+      const tokenId = await BUYCOFFEE({ name, message, cost }); // Pass parameters as an object
+      console.log("name", name);
+      console.log("msg", message);
+      console.log("tokenID:", tokenId);
     };
+    
       
   
     
