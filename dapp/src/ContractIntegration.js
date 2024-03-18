@@ -33,7 +33,7 @@ export const GETMEMO =async () => {
     }
 }
 
-export const BUYCOFFEE = async ({ name, message, cost }) => {
+export const BUYCOFFEE = async ({ name, message, _cost }) => {
     try {
       const provider =
         window.ethereum != null
@@ -42,7 +42,7 @@ export const BUYCOFFEE = async ({ name, message, cost }) => {
   
       const signer = provider.getSigner();
       const Role = new ethers.Contract(COFFEE_CONTRACT, Cof, signer);
-      const tokenId = await Role.buyCoffee(name, message, { value: cost });
+      const tokenId = await Role.buyCoffee(name, message, { value: _cost });
       alert('Coffee bought successfully!');
       return tokenId;
     } catch (error) {

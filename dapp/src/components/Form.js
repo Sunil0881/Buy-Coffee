@@ -7,6 +7,7 @@ const Form = () => {
   
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
+    const [cost, setCost] = useState('');
   
     const handleNameChange = (event) => {
       setName(event.target.value);
@@ -15,12 +16,15 @@ const Form = () => {
     const handleMessageChange = (event) => {
       setMessage(event.target.value);
     };
+    const handleCostChange = (event) => {
+      setCost(event.target.value);
+    };
   
     const handleBuyClick = async () => {
       alert("button clicked");
-      const cost = ethers.utils.parseEther('0.01').toString(); // Ensure cost is in wei
-      console.log("Cost:", cost);
-      const tokenId = await BUYCOFFEE({ name, message, cost }); // Pass parameters as an object
+      const _cost = ethers.utils.parseEther(cost).toString(); // Ensure cost is in wei
+      console.log("Cost:", _cost);
+      const tokenId = await BUYCOFFEE({ name, message, _cost }); // Pass parameters as an object
       console.log("name", name);
       console.log("msg", message);
       console.log("tokenID:", tokenId);
@@ -42,6 +46,11 @@ const Form = () => {
         Message:
       </label>
         <input className='border-2 border-black  ml-5 mb-10' type="text" value={message} onChange={handleMessageChange} />
+      <br /> 
+      <label className='font-semibold text-lg'>
+        Amount:
+      </label>
+        <input className='border-2 border-black  ml-5 mb-10' type="text" value={cost} onChange={handleCostChange} />
       <br /> 
       <div className='flex justify-center'>
       <button className='px-6 py-2 bg-red-500 rounded-xl font-bold ' onClick={handleBuyClick}>Buy</button>
