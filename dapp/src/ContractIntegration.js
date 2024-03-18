@@ -9,7 +9,7 @@ const isBrowser = () => typeof window !== "undefined";
 const { ethereum } = isBrowser();
 
 if (ethereum) {
-  isBrowser().web3 = new Web3(ethereum);
+  isBrowser().web3 = new Web3(ethereum); 
   isBrowser().web3 = new Web3(isBrowser().web3.currentProvider);
 }
 
@@ -19,7 +19,7 @@ export const GETMEMO =async () => {
         // const provider = new ethers.providers.JsonRpcProvider(
         //     "https://sepolia.infura.io/v3/290819ba5ca344eea8990cb5ccaa8e6a"
         // );
-        const provider =
+        const provider = 
         window.ethereum != null
           ? new ethers.providers.Web3Provider(window.ethereum)
           : ethers.providers.getDefaultProvider();
@@ -47,6 +47,6 @@ export const BUYCOFFEE = async ({ name, message, _cost }) => {
       return tokenId;
     } catch (error) {
       console.error('Error buying memo:', error);
-    }
+    }   
   }
   
