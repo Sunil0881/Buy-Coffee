@@ -39,7 +39,7 @@ const Output = () => {
       
   return (
     
-             <div className='mt-16 mb-10'>
+             <div className='mt-16 pb-10 bg-blue-500'>
 
                 <div className='grid grid-cols-5 text-xl gap-2  text-center font-semibold font-mono mb-5 '>
                     <div>Name</div>
