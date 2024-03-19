@@ -6,7 +6,7 @@ import Output from '../components/output';
 function Home() {
  
   return (
-    <div className='bg-blue-500 h-screen'>
+    <div className='bg-blue-500 '>
       <Navbar />
       
        <Form /> 
