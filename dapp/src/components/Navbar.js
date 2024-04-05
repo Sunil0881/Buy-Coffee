@@ -12,7 +12,7 @@ import {
   zora,
   polygonMumbai,
   sepolia,
-  xdcTestNet
+  xdcTestNet,
 } from 'wagmi/chains';
 import {
   QueryClientProvider,
