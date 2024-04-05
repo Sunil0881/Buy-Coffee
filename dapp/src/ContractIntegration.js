@@ -3,7 +3,7 @@ import Cof from "../src/abi/Coffee.json";
 import { ethers } from "ethers";
 import Web3 from "web3";
 
-const COFFEE_CONTRACT = "xdc2f6567b0da00d1e16003f65af8effcba2597218a";
+const COFFEE_CONTRACT = "0x09e6b4c35678A3ca634CC8Cd38f600132CAA1060";
 
 const isBrowser = () => typeof window !== "undefined";
 const { ethereum } = isBrowser();
